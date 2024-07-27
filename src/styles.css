@@ -1,0 +1,91 @@
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 24px;
+  color: #666;
+}
+
+.App {
+  text-align: center;
+}
+
+.sidebar {
+  width: 20%;
+  float: left;
+  padding: 10px;
+  border-right: 1px solid #ccc;
+}
+
+.builder {
+  width: 80%;
+  float: left;
+  padding: 10px;
+}
+
+.controls {
+  margin-bottom: 20px;
+}
+
+.draggable-component {
+  cursor: move;
+  border: 1px solid #ccc;
+  padding: 8px;
+  margin: 5px;
+  background-color: #f9f9f9;
+}
+
+.canvas {
+  border: 2px dashed #ccc;
+  min-height: 300px;
+  padding: 10px;
+  background-color: #f0f0f0;
+  transition: border-color 0.2s ease;
+}
+
+.canvas.over {
+  border-color: green;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+.styled-table {
+  border-collapse: collapse;  
+  margin: 12px 0;
+  font-size: 10px;
+  
+  width: 100%;
+  text-align: left;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.styled-table th,
+.styled-table td {
+  border: 1px solid #ddd; 
+  padding: 12px 15px;
+}
+
+.styled-table thead tr {
+  background-color: #f3f3f3; 
+  color: #333;
+  font-weight: bold;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #ddd; 
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f9f9f9;   
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #4caf50;   
+}
+
+.styled-table tbody tr:hover {
+  background-color: #f1f1f1;   
+}
