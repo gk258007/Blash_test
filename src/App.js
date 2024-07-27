@@ -10,6 +10,26 @@ const ComponentMap = {
   input: InputComponent,
   button: ButtonComponent,
 };
+async function saveState(state) {
+  try {
+    const response = await fetch('http://localhost:5000/save', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(state),
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to save state');
+    }
+
+    const result = await response.json();
+    console.log('State saved with ID:', result.id);
+  } catch (error) {
+    console.error('Error saving state:', error);
+  }
+}
 
 const DraggableComponent = ({ id, type }) => {
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
@@ -85,7 +105,9 @@ const App = () => {
         setLoading(false);
       });
   }, []);
-
+  const handleSaveState = async () => {
+    await saveState({ canvas: { components: items } });
+  };
   const handleDragEnd = (event) => {
     const { active, over } = event;
     console.log("Dropping item:", active.id);
@@ -138,7 +160,7 @@ const App = () => {
     <div className="App">
       <h1>Drag and Drop Webpage Builder</h1>
       <div className="controls">
-        <button onClick={() => saveStateToFirebase(items)}>Save State</button>
+        <button onClick={handleSaveState}>Save State</button>
         <button onClick={handlePreview}>Preview</button>
       </div>
       <div className="builder">
